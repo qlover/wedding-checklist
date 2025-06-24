@@ -1,5 +1,6 @@
 import { useBaseRoutePage } from '@/uikit/contexts/BaseRouteContext';
-import * as i18nKeys from '@config/Identifier/I18n';
+import * as i18nKeys from '@config/Identifier/About';
+import { COMMON_CANCEL, COMMON_OK } from '@config/Identifier/I18n';
 import {
   Button,
   Tooltip,
@@ -108,8 +109,8 @@ export default function About() {
           <Popconfirm
             title={t(i18nKeys.ABOUT_POPCONFIRM_TITLE)}
             description={t(i18nKeys.ABOUT_POPCONFIRM_DESC)}
-            okText={t(i18nKeys.COMMON_OK)}
-            cancelText={t(i18nKeys.COMMON_CANCEL)}
+            okText={t(COMMON_OK)}
+            cancelText={t(COMMON_CANCEL)}
           >
             <Button>{t(i18nKeys.ABOUT_BTN_POPCONFIRM)}</Button>
           </Popconfirm>

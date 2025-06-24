@@ -10,4 +10,4 @@ export const AUTH_LOGOUT_DIALOG_TITLE = 'Logout';
  * @localZh 确定要登出吗？
  * @localEn Are you sure you want to logout?
  */
-export const AUTH_LOGOUT_DIALOG_CONTENT = 'Are you sure you want to logout?';
+export const AUTH_LOGOUT_DIALOG_CONTENT = 'auth.logout.dialog.content';
