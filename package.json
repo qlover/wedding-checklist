@@ -1,0 +1,122 @@
+{
+  "name": "react-app",
+  "description": "A react app template",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "homepage": "",
+  "author": "qlover",
+  "license": "ISC",
+  "main": "./dist/es/index.js",
+  "module": "./dist/es/index.js",
+  "types": "./dist/es/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/es/index.d.ts",
+      "import": "./dist/es/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./cjs/*": "./dist/cjs/*",
+    "./es/*": "./dist/es/*",
+    "./package.json": "./package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qlover/fe-base.git",
+    "directory": ""
+  },
+  "files": [
+    "bin",
+    "dist",
+    "package.json",
+    "README.md"
+  ],
+  "keywords": [
+    "scripts",
+    "release",
+    "fe-release"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "fe-release": "./bin/release.js"
+  },
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest run",
+    "prettier": "prettier --write ./src",
+    "lint": "tsc -b --noEmit && eslint ./src --fix",
+    "clean": "fe-clean",
+    "check-packages": "fe-check-packages",
+    "commit": "fe-commit",
+    "clean-branch": "fe-clean-branch",
+    "release:wedding-checklist": "release-it",
+    "dev": "vite --mode localhost",
+    "dev:staging": "vite --mode staging",
+    "dev:prod": "vite --mode production",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@brain-toolkit/ts2locales": "^0.2.3",
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "@eslint/js": "^9.11.1",
+    "@qlover/env-loader": "latest",
+    "@qlover/eslint-plugin-fe-dev": "^0.2.0",
+    "@qlover/fe-scripts": "latest",
+    "@qlover/fe-standard": "^0.0.4",
+    "@qlover/scripts-context": "latest",
+    "@types/lodash": "^4.17.13",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "@types/typo-js": "^1.2.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.15.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "eslint-plugin-vitest": "^0.5.4",
+    "globals": "^15.12.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.0.0",
+    "postcss": "^8.5.4",
+    "prettier": "^3.5.3",
+    "sass-embedded": "^1.79.4",
+    "tailwindcss": "^4.1.8",
+    "terser": "^5.41.0",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.15.0",
+    "vite-plugin-cross-origin-isolation": "^0.1.6",
+    "vite-plugin-imp": "^2.4.0",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.0.5"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.0.0",
+    "@brain-toolkit/antd-theme-override": "^0.0.3",
+    "@qlover/corekit-bridge": "^1.0.3",
+    "@qlover/fe-corekit": "^1.3.1",
+    "@qlover/logger": "^0.1.1",
+    "@qlover/slice-store-react": "^1.0.8",
+    "@tailwindcss/postcss": "^4.1.8",
+    "@tailwindcss/vite": "^4.1.8",
+    "antd": "^5.25.3",
+    "clsx": "^2.1.1",
+    "i18next": "^24.2.0",
+    "i18next-browser-languagedetector": "^8.0.2",
+    "i18next-http-backend": "^3.0.1",
+    "inversify": "^7.1.0",
+    "lodash": "^4.17.21",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^15.2.0",
+    "react-router-dom": "^7.1.5",
+    "reflect-metadata": "^0.2.2",
+    "vite": "^6.3.5"
+  }
+}
