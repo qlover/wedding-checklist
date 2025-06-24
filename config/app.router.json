@@ -19,7 +19,7 @@
             "index": true,
             "element": "base/checklist/ChecklistPage",
             "meta": {
-              "title": "page.home.title",
+              "title": "checklist.page.title",
               "icon": "home",
               "localNamespace": "common"
             }
@@ -71,7 +71,7 @@
             "path": "login",
             "element": "auth/Login",
             "meta": {
-              "title": "page.login.title",
+              "title": "checklist.page.title",
               "icon": "info",
               "localNamespace": "common"
             }

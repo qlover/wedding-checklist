@@ -41,6 +41,7 @@
   "header.theme.pink": "浪漫粉色",
   "common.ok": "确定",
   "common.cancel": "取消",
+  "common.items": "项",
   "login.forgot_password": "忘记密码？",
   "login.continue_with": "或继续使用",
   "login.with_google": "使用 Google 登录",
@@ -109,5 +110,13 @@
   "checklist.form.estimatedPrice": "预计价格",
   "checklist.form.actualPrice": "实际价格",
   "checklist.form.dueDate": "截止日期",
-  "checklist.form.notes": "备注"
+  "checklist.form.notes": "备注",
+  "checklist.button.import": "导入数据",
+  "checklist.modal.import.title": "导入数据",
+  "checklist.import.success": "数据导入成功",
+  "checklist.import.error": "数据导入失败，请检查文件格式",
+  "CHECKLIST_BTN_EXPORT": "导出数据",
+  "CHECKLIST_EXPORT_SUCCESS": "数据导出成功",
+  "checklist.delete.confirm.ok": "确定",
+  "checklist.delete.confirm.cancel": "取消"
 }

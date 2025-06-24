@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import {
   Table,
   Button,
@@ -11,7 +11,8 @@ import {
   Switch,
   Tag,
   Modal,
-  Space
+  Space,
+  message
 } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import {
@@ -19,7 +20,10 @@ import {
   DeleteOutlined,
   CheckOutlined,
   CloseOutlined,
-  EditOutlined
+  EditOutlined,
+  ImportOutlined,
+  UploadOutlined,
+  DownloadOutlined
 } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import { IOC } from '@/core/IOC';
@@ -32,20 +36,24 @@ import * as i18nKeys from '@config/Identifier/CheckList';
 const ChecklistPage: React.FC = () => {
   const { t } = useTranslation();
   const controller = IOC.get(ChecklistController);
-  const { items, error } = useStore(controller);
+  const { items } = useStore(controller);
   const dialogHandler = IOC('DialogHandler');
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isImportModalVisible, setIsImportModalVisible] = useState(false);
   const [editingItem, setEditingItem] = useState<WeddingItem | null>(null);
+  const [error, setError] = useState<Error | null>(null);
   const [statusFilter, setStatusFilter] = useState<
     'all' | 'completed' | 'pending'
   >('all');
   const [form] = Form.useForm();
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (error) {
-      dialogHandler.error('操作失败，请重试');
+      dialogHandler.error(t(i18nKeys.CHECKLIST_IMPORT_ERROR));
+      setError(null);
     }
-  }, [error]);
+  }, [error, dialogHandler, t]);
 
   // 根据状态筛选项目
   const filteredItems = useMemo(() => {
@@ -103,6 +111,50 @@ const ChecklistPage: React.FC = () => {
     setIsModalVisible(false);
     setEditingItem(null);
     form.resetFields();
+  };
+
+  const handleImport = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const content = e.target?.result as string;
+        const importedData = JSON.parse(content);
+
+        if (Array.isArray(importedData)) {
+          controller.importItems(importedData);
+          message.success(t(i18nKeys.CHECKLIST_IMPORT_SUCCESS));
+          setIsImportModalVisible(false);
+        } else {
+          throw new Error('Invalid format');
+        }
+      } catch (err) {
+        setError(err as Error);
+        message.error(t(i18nKeys.CHECKLIST_IMPORT_ERROR));
+      }
+
+      // 清除文件输入，以便可以重新选择相同的文件
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    };
+    reader.readAsText(file);
+  };
+
+  const handleExport = () => {
+    const jsonStr = controller.exportItems();
+    const blob = new Blob([jsonStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `wedding-checklist-${dayjs().format('YYYY-MM-DD')}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    message.success(t(i18nKeys.CHECKLIST_EXPORT_SUCCESS));
   };
 
   const columns: ColumnsType<WeddingItem> = [
@@ -206,8 +258,8 @@ const ChecklistPage: React.FC = () => {
               dialogHandler.confirm({
                 title: t(i18nKeys.CHECKLIST_DELETE_CONFIRM_TITLE),
                 content: t(i18nKeys.CHECKLIST_DELETE_CONFIRM_CONTENT),
-                okText: t('common.delete'),
-                cancelText: t('common.cancel'),
+                okText: t(i18nKeys.CHECKLIST_DELETE_CONFIRM_OK),
+                cancelText: t(i18nKeys.CHECKLIST_DELETE_CONFIRM_CANCEL),
                 okButtonProps: { danger: true },
                 onOk: () => controller.deleteItem(record.id)
               });
@@ -252,6 +304,15 @@ const ChecklistPage: React.FC = () => {
           </div>
         </div>
         <div className="space-x-2">
+          <Button
+            icon={<ImportOutlined />}
+            onClick={() => setIsImportModalVisible(true)}
+          >
+            {t(i18nKeys.CHECKLIST_BTN_IMPORT)}
+          </Button>
+          <Button icon={<DownloadOutlined />} onClick={handleExport}>
+            {t(i18nKeys.CHECKLIST_BTN_EXPORT)}
+          </Button>
           <Button
             type="primary"
             icon={<PlusOutlined />}
@@ -360,6 +421,34 @@ const ChecklistPage: React.FC = () => {
             <Input.TextArea rows={4} />
           </Form.Item>
         </Form>
+      </Modal>
+
+      <Modal
+        title={t(i18nKeys.CHECKLIST_MODAL_IMPORT_TITLE)}
+        open={isImportModalVisible}
+        onCancel={() => setIsImportModalVisible(false)}
+        footer={null}
+      >
+        <div className="p-4 text-center">
+          <input
+            type="file"
+            accept=".json"
+            onChange={handleImport}
+            ref={fileInputRef}
+            className="hidden"
+            id="fileInput"
+          />
+          <label
+            htmlFor="fileInput"
+            className="inline-block cursor-pointer bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+          >
+            <UploadOutlined className="mr-2" />
+            {t(i18nKeys.CHECKLIST_BTN_IMPORT)}
+          </label>
+          <p className="mt-4 text-gray-500 text-sm">
+            请选择JSON格式的数据文件导入
+          </p>
+        </div>
       </Modal>
     </div>
   );

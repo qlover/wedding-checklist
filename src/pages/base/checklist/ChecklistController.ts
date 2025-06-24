@@ -138,4 +138,35 @@ export class ChecklistController extends StoreInterface<ChecklistState> {
       });
     }
   };
+
+  // 导入数据
+  importItems = (items: WeddingItem[]) => {
+    try {
+      // 验证导入的数据格式
+      const validItems = items.map(item => ({
+        ...item,
+        id: item.id || Date.now().toString(),
+        completed: Boolean(item.completed),
+        dueDate: item.dueDate ? new Date(item.dueDate) : undefined,
+        estimatedPrice: item.estimatedPrice ? Number(item.estimatedPrice) : undefined,
+        actualPrice: item.actualPrice ? Number(item.actualPrice) : undefined
+      }));
+
+      this.storage.setItem(KEY, validItems);
+      this.emit({
+        ...this.state,
+        items: validItems,
+        error: null
+      });
+    } catch (error) {
+      this.emit({
+        ...this.state,
+        error: error as Error
+      });
+    }
+  };
+
+  exportItems(): string {
+    return JSON.stringify(this.state.items, null, 2);
+  }
 }

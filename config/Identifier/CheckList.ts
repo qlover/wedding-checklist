@@ -66,7 +66,8 @@ export const CHECKLIST_CLEAR_CONFIRM_TITLE = 'checklist.clear.confirm.title';
  * @localZh 确定要清除所有数据吗？此操作不可恢复。
  * @localEn Are you sure you want to clear all data? This action cannot be undone.
  */
-export const CHECKLIST_CLEAR_CONFIRM_CONTENT = 'checklist.clear.confirm.content';
+export const CHECKLIST_CLEAR_CONFIRM_CONTENT =
+  'checklist.clear.confirm.content';
 
 /**
  * @description Delete Confirmation Title
@@ -80,7 +81,8 @@ export const CHECKLIST_DELETE_CONFIRM_TITLE = 'checklist.delete.confirm.title';
  * @localZh 确定要删除此项目吗？此操作不可恢复。
  * @localEn Are you sure you want to delete this item? This action cannot be undone.
  */
-export const CHECKLIST_DELETE_CONFIRM_CONTENT = 'checklist.delete.confirm.content';
+export const CHECKLIST_DELETE_CONFIRM_CONTENT =
+  'checklist.delete.confirm.content';
 
 /**
  * @description Filter All Text
@@ -115,7 +117,8 @@ export const CHECKLIST_COLUMN_CATEGORY = 'checklist.column.category';
  * @localZh 预计价格
  * @localEn Estimated Price
  */
-export const CHECKLIST_COLUMN_ESTIMATED_PRICE = 'checklist.column.estimatedPrice';
+export const CHECKLIST_COLUMN_ESTIMATED_PRICE =
+  'checklist.column.estimatedPrice';
 
 /**
  * @description Actual Price Column Title
@@ -185,7 +188,8 @@ export const CHECKLIST_FORM_CATEGORY = 'checklist.form.category';
  * @localZh 请选择分类
  * @localEn Please select category
  */
-export const CHECKLIST_FORM_CATEGORY_REQUIRED = 'checklist.form.category.required';
+export const CHECKLIST_FORM_CATEGORY_REQUIRED =
+  'checklist.form.category.required';
 
 /**
  * @description Form Estimated Price Label
@@ -214,3 +218,60 @@ export const CHECKLIST_FORM_DUE_DATE = 'checklist.form.dueDate';
  * @localEn Notes
  */
 export const CHECKLIST_FORM_NOTES = 'checklist.form.notes';
+
+/**
+ * @description Import Button Text
+ * @localZh 导入数据
+ * @localEn Import Data
+ */
+export const CHECKLIST_BTN_IMPORT = 'checklist.button.import';
+
+/**
+ * @description Import Modal Title
+ * @localZh 导入数据
+ * @localEn Import Data
+ */
+export const CHECKLIST_MODAL_IMPORT_TITLE = 'checklist.modal.import.title';
+
+/**
+ * @description Import Success Message
+ * @localZh 数据导入成功
+ * @localEn Data imported successfully
+ */
+export const CHECKLIST_IMPORT_SUCCESS = 'checklist.import.success';
+
+/**
+ * @description Import Error Message
+ * @localZh 数据导入失败，请检查文件格式
+ * @localEn Import failed, please check the file format
+ */
+export const CHECKLIST_IMPORT_ERROR = 'checklist.import.error';
+
+/**
+ * @description Export Button Text
+ * @localZh 导出数据
+ * @localEn Export Data
+ */
+export const CHECKLIST_BTN_EXPORT = 'CHECKLIST_BTN_EXPORT';
+
+/**
+ * @description Export Success Message
+ * @localZh 数据导出成功
+ * @localEn Data exported successfully
+ */
+export const CHECKLIST_EXPORT_SUCCESS = 'CHECKLIST_EXPORT_SUCCESS';
+
+/**
+ * @description Delete Confirmation OK Button Text
+ * @localZh 确定
+ * @localEn Confirm
+ */
+export const CHECKLIST_DELETE_CONFIRM_OK = 'checklist.delete.confirm.ok';
+
+/**
+ * @description Delete Confirmation Cancel Button Text
+ * @localZh 取消
+ * @localEn Cancel
+ */
+export const CHECKLIST_DELETE_CONFIRM_CANCEL =
+  'checklist.delete.confirm.cancel';

@@ -41,6 +41,7 @@
   "header.theme.pink": "Romantic Pink",
   "common.ok": "OK",
   "common.cancel": "Cancel",
+  "common.items": "items",
   "login.forgot_password": "Forgot Password?",
   "login.continue_with": "or continue with",
   "login.with_google": "Sign in with Google",
@@ -109,5 +110,13 @@
   "checklist.form.estimatedPrice": "Estimated Price",
   "checklist.form.actualPrice": "Actual Price",
   "checklist.form.dueDate": "Due Date",
-  "checklist.form.notes": "Notes"
+  "checklist.form.notes": "Notes",
+  "checklist.button.import": "Import Data",
+  "checklist.modal.import.title": "Import Data",
+  "checklist.import.success": "Data imported successfully",
+  "checklist.import.error": "Import failed, please check the file format",
+  "CHECKLIST_BTN_EXPORT": "Export Data",
+  "CHECKLIST_EXPORT_SUCCESS": "Data exported successfully",
+  "checklist.delete.confirm.ok": "Confirm",
+  "checklist.delete.confirm.cancel": "Cancel"
 }
