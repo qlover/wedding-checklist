@@ -7,6 +7,9 @@ import { RouteService } from './base/services/RouteService';
 import { RouterLoader, type ComponentValue } from '@/base/cases/RouterLoader';
 import { AntdThemeProvider } from '@brain-toolkit/antd-theme-override/react';
 import { routerPrefix } from '@config/common';
+import { useTranslation } from 'react-i18next';
+import zhCN from 'antd/locale/zh_CN';
+import enUS from 'antd/locale/en_US';
 
 function getAllPages() {
   const modules = import.meta.glob('./pages/**/*.tsx');
@@ -28,6 +31,8 @@ const routerLoader = new RouterLoader({
 });
 
 function App() {
+  const { i18n } = useTranslation();
+
   const routerBase = useMemo(() => {
     const routes = IOC(RouteService)
       .getRoutes()
@@ -41,6 +46,7 @@ function App() {
   return (
     <AntdThemeProvider
       staticApi={IOC('DialogHandler')}
+      locale={i18n.language === 'zh' ? zhCN : enUS}
       theme={{
         cssVar: {
           key: 'fe-theme',

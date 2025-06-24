@@ -1,11 +1,4 @@
 /**
- * @description IOC 未实现
- * @localZh IOC 未实现
- * @localEn IOC not implemented
- */
-export const APP_IOC_NOT_IMPLEMENTED = 'err.ioc.not.implemented';
-
-/**
  * @description 本地未找到 user token
  * @localZh 本地未找到 user token
  * @localEn Local no user token

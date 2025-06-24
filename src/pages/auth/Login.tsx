@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { Form, Input, Button } from 'antd';
-import { UserOutlined, LockOutlined, GoogleOutlined } from '@ant-design/icons';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { IOC } from '@/core/IOC';
 import { useBaseRoutePage } from '@/uikit/contexts/BaseRouteContext';
 import { RouteService } from '@/base/services/RouteService';
 import { UserService } from '@/base/services/UserService';
 import { useStore } from '@/uikit/hooks/useStore';
 import * as i18nKeys from '@config/Identifier/I18n';
-import LocaleLink from '@/uikit/components/LocaleLink';
 
 interface LoginFormData {
   email: string;
@@ -39,13 +38,7 @@ export default function Login() {
   return (
     <div className="flex min-h-screen text-xs1 bg-primary">
       {/* Left side - Brand section */}
-      <div className="hidden lg:flex lg:w-1/2 bg-secondary p-12 flex-col">
-        <div className="flex items-center gap-3 mb-12">
-          <div className="w-10 h-10 bg-brand rounded-lg"></div>
-          <span className="text-2xl font-semibold text-text">
-            {AppConfig.appName}
-          </span>
-        </div>
+      <div className="hidden lg:flex lg:w-1/2 bg-secondary p-12 flex-col items-center justify-center">
         <h1 className="text-4xl font-bold text-text mb-4">
           {t(i18nKeys.LOGIN_WELCOME)}
         </h1>
@@ -113,16 +106,6 @@ export default function Login() {
               />
             </Form.Item>
 
-            <div className="flex justify-end">
-              <a
-                href="#"
-                className="text-brand hover:text-brand-hover"
-                title={t(i18nKeys.LOGIN_FORGOT_PASSWORD_TITLE)}
-              >
-                {t(i18nKeys.LOGIN_FORGOT_PASSWORD)}
-              </a>
-            </div>
-
             <Form.Item>
               <Button
                 type="primary"
@@ -134,31 +117,6 @@ export default function Login() {
                 {t(i18nKeys.LOGIN_BUTTON)}
               </Button>
             </Form.Item>
-
-            <div className="text-center text-text-tertiary my-4">
-              {t(i18nKeys.LOGIN_CONTINUE_WITH)}
-            </div>
-
-            <Button
-              icon={<GoogleOutlined />}
-              className="w-full h-12 text-base"
-              title={t(i18nKeys.LOGIN_WITH_GOOGLE_TITLE)}
-            >
-              {t(i18nKeys.LOGIN_WITH_GOOGLE)}
-            </Button>
-
-            <div className="text-center mt-6">
-              <span className="text-text-tertiary">
-                {t(i18nKeys.LOGIN_NO_ACCOUNT)}{' '}
-              </span>
-              <LocaleLink
-                href="/register"
-                className="text-brand hover:text-brand-hover"
-                title={t(i18nKeys.LOGIN_CREATE_ACCOUNT_TITLE)}
-              >
-                {t(i18nKeys.LOGIN_CREATE_ACCOUNT)}
-              </LocaleLink>
-            </div>
           </Form>
         </div>
       </div>

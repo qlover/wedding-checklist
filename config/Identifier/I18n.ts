@@ -1,7 +1,7 @@
 /**
  * @description Login page title
- * @localZh 登录
- * @localEn Login
+ * @localZh 登录备婚清单
+ * @localEn Wedding Checklist Login
  */
 export const LOGIN_TITLE = 'login.title';
 
@@ -35,36 +35,36 @@ export const LOGIN_BUTTON = 'login.login';
 
 /**
  * @description Login page description
- * @localZh 欢迎来到未来学习
- * @localEn Welcome to the future of learning
+ * @localZh 欢迎使用备婚清单
+ * @localEn Welcome to Wedding Checklist
  */
 export const LOGIN_WELCOME = 'login.welcome';
 
 /**
  * @description Login page description
- * @localZh 解锁个性化 AI 驱动的学习体验，加速您的知识旅程。
- * @localEn Unlock personalized AI-powered learning experiences designed to accelerate your knowledge journey.
+ * @localZh 让我们一起规划您的完美婚礼，记录每一个重要时刻。
+ * @localEn Let's plan your perfect wedding together and track every important moment.
  */
 export const LOGIN_SUBTITLE = 'login.subtitle';
 
 /**
  * @description Theme switcher default theme label
- * @localZh 默认主题
- * @localEn Default Theme
+ * @localZh 经典主题
+ * @localEn Classic Theme
  */
 export const HEADER_THEME_DEFAULT = 'header.theme.default';
 
 /**
  * @description Theme switcher dark theme label
- * @localZh 暗色主题
- * @localEn Dark Theme
+ * @localZh 优雅暗色
+ * @localEn Elegant Dark
  */
 export const HEADER_THEME_DARK = 'header.theme.dark';
 
 /**
  * @description Theme switcher pink theme label
- * @localZh 粉色主题
- * @localEn Pink Theme
+ * @localZh 浪漫粉色
+ * @localEn Romantic Pink
  */
 export const HEADER_THEME_PINK = 'header.theme.pink';
 
@@ -114,8 +114,8 @@ export const LOGIN_NO_ACCOUNT = 'login.no_account';
 
 /**
  * @description Login page create account link text
- * @localZh 在此创建
- * @localEn Create one here
+ * @localZh 立即创建
+ * @localEn Create one now
  */
 export const LOGIN_CREATE_ACCOUNT = 'login.create_account';
 
@@ -134,27 +134,25 @@ export const LOGIN_EMAIL_REQUIRED = 'login.email_required';
 export const LOGIN_PASSWORD_REQUIRED = 'login.password_required';
 
 /**
- * @description Login page feature item - AI learning paths
- * @localZh AI驱动的个性化学习路径
- * @localEn AI-powered personalized learning paths
+ * @description Login page feature item - Wedding Planning
+ * @localZh 智能备婚任务规划
+ * @localEn Smart Wedding Task Planning
  */
 export const LOGIN_FEATURE_AI_PATHS = 'login.feature.ai_paths';
 
 /**
  * @description Login page feature item - Smart recommendations
- * @localZh 智能内容推荐
- * @localEn Smart content recommendations
+ * @localZh 婚礼供应商推荐
+ * @localEn Wedding Vendor Recommendations
  */
-export const LOGIN_FEATURE_SMART_RECOMMENDATIONS =
-  'login.feature.smart_recommendations';
+export const LOGIN_FEATURE_SMART_RECOMMENDATIONS = 'login.feature.smart_recommendations';
 
 /**
  * @description Login page feature item - Progress tracking
- * @localZh 实时进度追踪
- * @localEn Real-time progress tracking
+ * @localZh 婚礼筹备进度追踪
+ * @localEn Wedding Preparation Progress Tracking
  */
-export const LOGIN_FEATURE_PROGRESS_TRACKING =
-  'login.feature.progress_tracking';
+export const LOGIN_FEATURE_PROGRESS_TRACKING = 'login.feature.progress_tracking';
 
 /**
  * @description Login page email input title
@@ -200,15 +198,15 @@ export const LOGIN_CREATE_ACCOUNT_TITLE = 'login.create_account.title';
 
 /**
  * @description Register page title
- * @localZh 创建账号
- * @localEn Create Account
+ * @localZh 创建备婚账号
+ * @localEn Create Wedding Planning Account
  */
 export const REGISTER_TITLE = 'register.title';
 
 /**
  * @description Register page subtitle
- * @localZh 开始您的学习之旅
- * @localEn Start your learning journey
+ * @localZh 开始您的完美婚礼规划
+ * @localEn Start Your Perfect Wedding Planning
  */
 export const REGISTER_SUBTITLE = 'register.subtitle';
 
@@ -266,8 +264,7 @@ export const REGISTER_CONFIRM_PASSWORD = 'register.confirm_password';
  * @localZh 请确认密码！
  * @localEn Please confirm your password!
  */
-export const REGISTER_CONFIRM_PASSWORD_REQUIRED =
-  'register.confirm_password_required';
+export const REGISTER_CONFIRM_PASSWORD_REQUIRED = 'register.confirm_password_required';
 
 /**
  * @description Register page passwords don't match message
@@ -326,23 +323,23 @@ export const REGISTER_HAVE_ACCOUNT = 'register.have_account';
 export const REGISTER_LOGIN_LINK = 'register.login_link';
 
 /**
- * @description Register page feature item - Personalized Learning
- * @localZh 个性化学习体验
- * @localEn Personalized Learning Experience
+ * @description Register page feature item - Wedding Planning Tools
+ * @localZh 全面的婚礼筹备工具
+ * @localEn Comprehensive Wedding Planning Tools
  */
 export const REGISTER_FEATURE_PERSONALIZED = 'register.feature.personalized';
 
 /**
  * @description Register page feature item - Expert Support
- * @localZh 专家支持和指导
- * @localEn Expert Support and Guidance
+ * @localZh 婚礼专家支持
+ * @localEn Wedding Expert Support
  */
 export const REGISTER_FEATURE_SUPPORT = 'register.feature.support';
 
 /**
- * @description Register page feature item - Learning Community
- * @localZh 活跃的学习社区
- * @localEn Active Learning Community
+ * @description Register page feature item - Wedding Community
+ * @localZh 新人交流社区
+ * @localEn Wedding Planning Community
  */
 export const REGISTER_FEATURE_COMMUNITY = 'register.feature.community';
 
@@ -352,3 +349,17 @@ export const REGISTER_FEATURE_COMMUNITY = 'register.feature.community';
  * @localEn Please agree to the Terms of Service and Privacy Policy
  */
 export const REGISTER_TERMS_REQUIRED = 'register.terms_required';
+
+/**
+ * @description logout dialog title
+ * @localZh 退出备婚清单
+ * @localEn Exit Wedding Checklist
+ */
+export const AUTH_LOGOUT_DIALOG_TITLE = 'Logout';
+
+/**
+ * @description logout dialog content
+ * @localZh 确定要退出备婚清单吗？
+ * @localEn Are you sure you want to exit Wedding Checklist?
+ */
+export const AUTH_LOGOUT_DIALOG_CONTENT = 'auth.logout.dialog.content';

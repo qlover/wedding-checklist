@@ -26,8 +26,11 @@ import { IOC } from '@/core/IOC';
 import { ChecklistController } from './ChecklistController';
 import { useStore } from '@/uikit/hooks/useStore';
 import { ItemCategory, WeddingItem } from './types';
+import { useTranslation } from 'react-i18next';
+import * as i18nKeys from '@config/Identifier/CheckList';
 
 const ChecklistPage: React.FC = () => {
+  const { t } = useTranslation();
   const controller = IOC.get(ChecklistController);
   const { items, error } = useStore(controller);
   const dialogHandler = IOC('DialogHandler');
@@ -104,7 +107,7 @@ const ChecklistPage: React.FC = () => {
 
   const columns: ColumnsType<WeddingItem> = [
     {
-      title: '状态',
+      title: t(i18nKeys.CHECKLIST_COLUMN_STATUS),
       dataIndex: 'completed',
       width: 150,
       align: 'center',
@@ -121,13 +124,15 @@ const ChecklistPage: React.FC = () => {
             color={completed ? 'success' : 'default'}
             className="min-w-[60px] text-center transition-all duration-300"
           >
-            {completed ? '已完成' : '待完成'}
+            {completed
+              ? t(i18nKeys.CHECKLIST_STATUS_COMPLETED)
+              : t(i18nKeys.CHECKLIST_STATUS_PENDING)}
           </Tag>
         </div>
       )
     },
     {
-      title: '项目',
+      title: t(i18nKeys.CHECKLIST_COLUMN_NAME),
       dataIndex: 'name',
       width: 200,
       render: (text: string, record) => (
@@ -137,13 +142,13 @@ const ChecklistPage: React.FC = () => {
       )
     },
     {
-      title: '分类',
+      title: t(i18nKeys.CHECKLIST_COLUMN_CATEGORY),
       dataIndex: 'category',
       width: 120,
       render: (category: string) => <Tag color="blue">{category}</Tag>
     },
     {
-      title: '预计价格',
+      title: t(i18nKeys.CHECKLIST_COLUMN_ESTIMATED_PRICE),
       dataIndex: 'estimatedPrice',
       width: 120,
       render: (price?: number) => (
@@ -153,7 +158,7 @@ const ChecklistPage: React.FC = () => {
       )
     },
     {
-      title: '实际价格',
+      title: t(i18nKeys.CHECKLIST_COLUMN_ACTUAL_PRICE),
       dataIndex: 'actualPrice',
       width: 120,
       render: (price: number | undefined, record) => (
@@ -165,7 +170,7 @@ const ChecklistPage: React.FC = () => {
       )
     },
     {
-      title: '截止日期',
+      title: t(i18nKeys.CHECKLIST_COLUMN_DUE_DATE),
       dataIndex: 'dueDate',
       width: 120,
       render: (date?: Date) => {
@@ -178,12 +183,12 @@ const ChecklistPage: React.FC = () => {
       }
     },
     {
-      title: '备注',
+      title: t(i18nKeys.CHECKLIST_COLUMN_NOTES),
       dataIndex: 'notes',
       ellipsis: true
     },
     {
-      title: '操作',
+      title: t(i18nKeys.CHECKLIST_COLUMN_ACTIONS),
       key: 'action',
       width: 120,
       render: (_, record) => (
@@ -199,10 +204,10 @@ const ChecklistPage: React.FC = () => {
             icon={<DeleteOutlined />}
             onClick={() => {
               dialogHandler.confirm({
-                title: '确认删除',
-                content: `确定要删除"${record.name}"吗？此操作不可恢复。`,
-                okText: '删除',
-                cancelText: '取消',
+                title: t(i18nKeys.CHECKLIST_DELETE_CONFIRM_TITLE),
+                content: t(i18nKeys.CHECKLIST_DELETE_CONFIRM_CONTENT),
+                okText: t('common.delete'),
+                cancelText: t('common.cancel'),
                 okButtonProps: { danger: true },
                 onOk: () => controller.deleteItem(record.id)
               });
@@ -226,15 +231,23 @@ const ChecklistPage: React.FC = () => {
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
         <div>
-          <h1 className="text-2xl font-bold">备婚清单</h1>
+          <h1 className="text-2xl font-bold">
+            {t(i18nKeys.CHECKLIST_PAGE_TITLE)}
+          </h1>
           <div className="text-gray-500 mt-2">
             <div>
-              预计总支出: ¥{totalEstimated} | 实际总支出: ¥{totalActual}
+              {t(i18nKeys.CHECKLIST_TOTAL_ESTIMATED)}: ¥
+              {totalEstimated.toLocaleString()} |{' '}
+              {t(i18nKeys.CHECKLIST_TOTAL_ACTUAL)}: ¥
+              {totalActual.toLocaleString()}
             </div>
             <div className="mt-1">
-              总进度: {progress}% (已完成{' '}
-              {items.filter((item) => item.completed).length} 项， 待完成{' '}
-              {items.filter((item) => !item.completed).length} 项)
+              {t(i18nKeys.CHECKLIST_PROGRESS)}: {progress}% (
+              {t(i18nKeys.CHECKLIST_STATUS_COMPLETED)}{' '}
+              {items.filter((item) => item.completed).length}{' '}
+              {t('common.items')}, {t(i18nKeys.CHECKLIST_STATUS_PENDING)}{' '}
+              {items.filter((item) => !item.completed).length}{' '}
+              {t('common.items')})
             </div>
           </div>
         </div>
@@ -244,19 +257,19 @@ const ChecklistPage: React.FC = () => {
             icon={<PlusOutlined />}
             onClick={() => setIsModalVisible(true)}
           >
-            添加项目
+            {t(i18nKeys.CHECKLIST_BTN_ADD)}
           </Button>
           <Button
             danger
             onClick={() => {
               dialogHandler.confirm({
-                title: '确认清除',
-                content: '确定要清除所有数据吗？此操作不可恢复。',
+                title: t(i18nKeys.CHECKLIST_CLEAR_CONFIRM_TITLE),
+                content: t(i18nKeys.CHECKLIST_CLEAR_CONFIRM_CONTENT),
                 onOk: () => controller.clearAll()
               });
             }}
           >
-            清除所有
+            {t(i18nKeys.CHECKLIST_BTN_CLEAR)}
           </Button>
         </div>
       </div>
@@ -266,9 +279,15 @@ const ChecklistPage: React.FC = () => {
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
         >
-          <Radio.Button value="all">全部</Radio.Button>
-          <Radio.Button value="pending">待完成</Radio.Button>
-          <Radio.Button value="completed">已完成</Radio.Button>
+          <Radio.Button value="all">
+            {t(i18nKeys.CHECKLIST_FILTER_ALL)}
+          </Radio.Button>
+          <Radio.Button value="pending">
+            {t(i18nKeys.CHECKLIST_STATUS_PENDING)}
+          </Radio.Button>
+          <Radio.Button value="completed">
+            {t(i18nKeys.CHECKLIST_STATUS_COMPLETED)}
+          </Radio.Button>
         </Radio.Group>
       </div>
 
@@ -282,7 +301,11 @@ const ChecklistPage: React.FC = () => {
       />
 
       <Modal
-        title={editingItem ? '编辑项目' : '添加新项目'}
+        title={
+          editingItem
+            ? t(i18nKeys.CHECKLIST_MODAL_EDIT_TITLE)
+            : t(i18nKeys.CHECKLIST_MODAL_ADD_TITLE)
+        }
         open={isModalVisible}
         onOk={handleModalOk}
         onCancel={handleModalCancel}
@@ -290,15 +313,25 @@ const ChecklistPage: React.FC = () => {
         <Form form={form} layout="vertical">
           <Form.Item
             name="name"
-            label="项目名称"
-            rules={[{ required: true, message: '请输入项目名称' }]}
+            label={t(i18nKeys.CHECKLIST_FORM_NAME)}
+            rules={[
+              {
+                required: true,
+                message: t(i18nKeys.CHECKLIST_FORM_NAME_REQUIRED)
+              }
+            ]}
           >
             <Input />
           </Form.Item>
           <Form.Item
             name="category"
-            label="分类"
-            rules={[{ required: true, message: '请选择分类' }]}
+            label={t(i18nKeys.CHECKLIST_FORM_CATEGORY)}
+            rules={[
+              {
+                required: true,
+                message: t(i18nKeys.CHECKLIST_FORM_CATEGORY_REQUIRED)
+              }
+            ]}
           >
             <Select>
               {Object.values(ItemCategory).map((category) => (
@@ -308,16 +341,22 @@ const ChecklistPage: React.FC = () => {
               ))}
             </Select>
           </Form.Item>
-          <Form.Item name="estimatedPrice" label="预计价格">
+          <Form.Item
+            name="estimatedPrice"
+            label={t(i18nKeys.CHECKLIST_FORM_ESTIMATED_PRICE)}
+          >
             <InputNumber prefix="¥" style={{ width: '100%' }} min={0} />
           </Form.Item>
-          <Form.Item name="actualPrice" label="实际价格">
+          <Form.Item
+            name="actualPrice"
+            label={t(i18nKeys.CHECKLIST_FORM_ACTUAL_PRICE)}
+          >
             <InputNumber prefix="¥" style={{ width: '100%' }} min={0} />
           </Form.Item>
-          <Form.Item name="dueDate" label="截止日期">
+          <Form.Item name="dueDate" label={t(i18nKeys.CHECKLIST_FORM_DUE_DATE)}>
             <DatePicker style={{ width: '100%' }} />
           </Form.Item>
-          <Form.Item name="notes" label="备注">
+          <Form.Item name="notes" label={t(i18nKeys.CHECKLIST_FORM_NOTES)}>
             <Input.TextArea rows={4} />
           </Form.Item>
         </Form>
