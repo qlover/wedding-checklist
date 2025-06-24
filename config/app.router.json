@@ -17,7 +17,7 @@
         "children": [
           {
             "index": true,
-            "element": "base/Home",
+            "element": "checklist/ChecklistPage",
             "meta": {
               "title": "page.home.title",
               "icon": "home",

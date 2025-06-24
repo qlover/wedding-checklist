@@ -1,6 +1,6 @@
 {
-  "name": "react-app",
-  "description": "A react app template",
+  "name": "wedding-checklist",
+  "description": "Qrj's wedding checklist",
   "version": "0.0.0",
   "type": "module",
   "private": true,
@@ -107,6 +107,7 @@
     "@tailwindcss/vite": "^4.1.8",
     "antd": "^5.25.3",
     "clsx": "^2.1.1",
+    "dayjs": "^1.11.13",
     "i18next": "^24.2.0",
     "i18next-browser-languagedetector": "^8.0.2",
     "i18next-http-backend": "^3.0.1",
