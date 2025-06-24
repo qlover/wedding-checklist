@@ -36,4 +36,4 @@ export const loggerStyles = {
  * - 需要以 / 开头
  * - 但是不能只有 /
  */
-export const routerPrefix = '';
+export const routerPrefix = '/wedding-checklist';
