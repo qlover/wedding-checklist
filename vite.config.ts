@@ -18,6 +18,9 @@ import { join } from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
+  preview: {
+    allowedHosts: ['*']
+  },
   build: {
     rollupOptions: {
       output: {
