@@ -1,6 +1,6 @@
 import React from 'react';
-import { List, Checkbox, Tag, Progress } from 'antd';
-import { ChecklistCategory, ChecklistItem, Priority } from '../types';
+import { List, Checkbox, Tag } from 'antd';
+import { ChecklistCategory, ChecklistItem, Priority } from './types';
 
 interface TaskListProps {
   category: ChecklistCategory;
@@ -17,8 +17,8 @@ const TaskList: React.FC<TaskListProps> = ({ category }) => {
       priority: Priority.HIGH,
       completed: false,
       createdAt: new Date(),
-      updatedAt: new Date(),
-    },
+      updatedAt: new Date()
+    }
   ];
 
   const getPriorityColor = (priority: Priority) => {
@@ -37,11 +37,9 @@ const TaskList: React.FC<TaskListProps> = ({ category }) => {
   return (
     <List
       size="small"
-      dataSource={tasks.filter(task => task.category === category)}
-      renderItem={task => (
-        <List.Item
-          className="flex items-center gap-2 hover:bg-gray-50 p-2 rounded"
-        >
+      dataSource={tasks.filter((task) => task.category === category)}
+      renderItem={(task) => (
+        <List.Item className="flex items-center gap-2 hover:bg-gray-50 p-2 rounded">
           <Checkbox checked={task.completed} />
           <div className="flex-1">
             <div className="font-medium">{task.title}</div>
@@ -49,13 +47,11 @@ const TaskList: React.FC<TaskListProps> = ({ category }) => {
               <div className="text-sm text-gray-500">{task.description}</div>
             )}
           </div>
-          <Tag color={getPriorityColor(task.priority)}>
-            {task.priority}
-          </Tag>
+          <Tag color={getPriorityColor(task.priority)}>{task.priority}</Tag>
         </List.Item>
       )}
     />
   );
 };
 
-export default TaskList; 
+export default TaskList;

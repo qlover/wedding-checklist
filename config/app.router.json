@@ -17,7 +17,7 @@
         "children": [
           {
             "index": true,
-            "element": "checklist/ChecklistPage",
+            "element": "base/checklist/ChecklistPage",
             "meta": {
               "title": "page.home.title",
               "icon": "home",
@@ -29,42 +29,6 @@
             "element": "base/About",
             "meta": {
               "title": "page.about.title",
-              "icon": "info",
-              "localNamespace": "common"
-            }
-          },
-          {
-            "path": "jsonStorage",
-            "element": "base/JSONStorage",
-            "meta": {
-              "title": "page.jsonstorage.title",
-              "icon": "info",
-              "localNamespace": "common"
-            }
-          },
-          {
-            "path": "request",
-            "element": "base/Request",
-            "meta": {
-              "title": "page.request.title",
-              "icon": "info",
-              "localNamespace": "common"
-            }
-          },
-          {
-            "path": "executor",
-            "element": "base/Executor",
-            "meta": {
-              "title": "page.executor.title",
-              "icon": "info",
-              "localNamespace": "common"
-            }
-          },
-          {
-            "path": "errorIdentifier",
-            "element": "base/ErrorIdentifier",
-            "meta": {
-              "title": "page.error_identifier.title",
               "icon": "info",
               "localNamespace": "common"
             }
@@ -108,15 +72,6 @@
             "element": "auth/Login",
             "meta": {
               "title": "page.login.title",
-              "icon": "info",
-              "localNamespace": "common"
-            }
-          },
-          {
-            "path": "register",
-            "element": "auth/Register",
-            "meta": {
-              "title": "page.register.title",
               "icon": "info",
               "localNamespace": "common"
             }

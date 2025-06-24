@@ -21,11 +21,11 @@ import {
   CloseOutlined,
   EditOutlined
 } from '@ant-design/icons';
-import { WeddingItem, ItemCategory } from './types';
 import dayjs from 'dayjs';
 import { IOC } from '@/core/IOC';
-import { ChecklistController } from './controllers/ChecklistController';
+import { ChecklistController } from './ChecklistController';
 import { useStore } from '@/uikit/hooks/useStore';
+import { ItemCategory, WeddingItem } from './types';
 
 const ChecklistPage: React.FC = () => {
   const controller = IOC.get(ChecklistController);
@@ -239,7 +239,11 @@ const ChecklistPage: React.FC = () => {
           </div>
         </div>
         <div className="space-x-2">
-          <Button type="primary" icon={<PlusOutlined />} onClick={() => setIsModalVisible(true)}>
+          <Button
+            type="primary"
+            icon={<PlusOutlined />}
+            onClick={() => setIsModalVisible(true)}
+          >
             添加项目
           </Button>
           <Button

@@ -1,7 +1,8 @@
-import { injectable } from 'inversify';
+import { inject, injectable } from 'inversify';
 import { StoreInterface } from '@/base/port/StoreInterface';
-import { WeddingItem } from '../types';
-import { StorageService } from '../services/storage';
+import { WeddingItem } from './types';
+import { JSONStorage } from '@qlover/fe-corekit';
+import { IOCIdentifier } from '@/core/IOC';
 
 interface ChecklistState {
   items: WeddingItem[];
@@ -9,9 +10,11 @@ interface ChecklistState {
   error: Error | null;
 }
 
-function createDefaultState(): ChecklistState {
+const KEY = 'checklist';
+
+function createDefaultState(storage: JSONStorage): ChecklistState {
   return {
-    items: StorageService.getItems(),
+    items: storage.getItem(KEY, []) as WeddingItem[],
     loading: false,
     error: null
   };
@@ -19,8 +22,11 @@ function createDefaultState(): ChecklistState {
 
 @injectable()
 export class ChecklistController extends StoreInterface<ChecklistState> {
-  constructor() {
-    super(createDefaultState);
+  constructor(
+    @inject(IOCIdentifier.JSONStorage)
+    protected storage: JSONStorage
+  ) {
+    super(() => createDefaultState(storage));
   }
 
   // 选择器
@@ -39,9 +45,9 @@ export class ChecklistController extends StoreInterface<ChecklistState> {
     };
 
     const updatedItems = [...this.state.items, newItem];
-    
+
     try {
-      StorageService.saveItems(updatedItems);
+      this.storage.setItem(KEY, updatedItems);
       this.emit({
         ...this.state,
         items: updatedItems,
@@ -57,12 +63,12 @@ export class ChecklistController extends StoreInterface<ChecklistState> {
 
   // 更新项目
   updateItem = (id: string, updates: Partial<WeddingItem>) => {
-    const updatedItems = this.state.items.map(item =>
+    const updatedItems = this.state.items.map((item) =>
       item.id === id ? { ...item, ...updates } : item
     );
 
     try {
-      StorageService.saveItems(updatedItems);
+      this.storage.setItem(KEY, updatedItems);
       this.emit({
         ...this.state,
         items: updatedItems,
@@ -78,10 +84,10 @@ export class ChecklistController extends StoreInterface<ChecklistState> {
 
   // 删除项目
   deleteItem = (id: string) => {
-    const updatedItems = this.state.items.filter(item => item.id !== id);
+    const updatedItems = this.state.items.filter((item) => item.id !== id);
 
     try {
-      StorageService.saveItems(updatedItems);
+      this.storage.setItem(KEY, updatedItems);
       this.emit({
         ...this.state,
         items: updatedItems,
@@ -97,12 +103,12 @@ export class ChecklistController extends StoreInterface<ChecklistState> {
 
   // 切换完成状态
   toggleComplete = (id: string) => {
-    const updatedItems = this.state.items.map(item =>
+    const updatedItems = this.state.items.map((item) =>
       item.id === id ? { ...item, completed: !item.completed } : item
     );
 
     try {
-      StorageService.saveItems(updatedItems);
+      this.storage.setItem(KEY, updatedItems);
       this.emit({
         ...this.state,
         items: updatedItems,
@@ -119,7 +125,7 @@ export class ChecklistController extends StoreInterface<ChecklistState> {
   // 清除所有数据
   clearAll = () => {
     try {
-      StorageService.clearItems();
+      this.storage.removeItem(KEY);
       this.emit({
         ...this.state,
         items: [],
@@ -132,4 +138,4 @@ export class ChecklistController extends StoreInterface<ChecklistState> {
       });
     }
   };
-} 
+}
