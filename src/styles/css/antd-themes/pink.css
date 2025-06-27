@@ -196,4 +196,46 @@
       0 9px 28px 8px rgba(244, 114, 182, 0.05);
     --fe-modal-mask-bg: rgba(244, 114, 182, 0.45);
   }
+
+  /* Antd Table 组件变量 */
+  .ant-table,
+  .ant-table-css-var {
+    --fe-table-header-bg: rgb(254 226 226); /* rose-100 */
+    --fe-table-header-color: rgb(190 18 60); /* rose-700 */
+    --fe-table-header-sort-active-bg: rgb(254 205 211); /* rose-200 */
+    --fe-table-header-sort-hover-bg: rgb(254 205 211); /* rose-200 */
+    --fe-table-body-sort-bg: rgb(254 226 226); /* rose-100 */
+    --fe-table-row-hover-bg: rgb(254 205 211); /* rose-200 */
+    --fe-table-row-selected-bg: rgba(244, 114, 182, 0.15); /* pink-400 with opacity */
+    --fe-table-row-selected-hover-bg: rgba(244, 114, 182, 0.25); /* pink-400 with opacity */
+    --fe-table-row-expanded-bg: rgba(190, 18, 60, 0.02); /* rose-700 with opacity */
+    --fe-table-cell-padding-block: 16px;
+    --fe-table-cell-padding-inline: 16px;
+    --fe-table-cell-padding-block-md: 12px;
+    --fe-table-cell-padding-inline-md: 8px;
+    --fe-table-cell-padding-block-sm: 8px;
+    --fe-table-cell-padding-inline-sm: 8px;
+    --fe-table-border-color: rgb(254 205 211); /* rose-200 */
+    --fe-table-header-border-radius: 8px;
+    --fe-table-footer-bg: rgb(254 226 226); /* rose-100 */
+    --fe-table-footer-color: rgb(190 18 60); /* rose-700 */
+    --fe-table-cell-font-size: 14px;
+    --fe-table-cell-font-size-md: 14px;
+    --fe-table-cell-font-size-sm: 14px;
+    --fe-table-header-split-color: rgb(254 205 211); /* rose-200 */
+    --fe-table-fixed-header-sort-active-bg: rgb(254 205 211); /* rose-200 */
+    --fe-table-header-filter-hover-bg: rgba(190, 18, 60, 0.06);
+    --fe-table-filter-dropdown-menu-bg: rgb(255 241 242); /* rose-50 */
+    --fe-table-filter-dropdown-bg: rgb(255 241 242); /* rose-50 */
+    --fe-table-expand-icon-bg: rgb(255 241 242); /* rose-50 */
+    --fe-table-selection-column-width: 32px;
+    --fe-table-sticky-scroll-bar-bg: rgba(190, 18, 60, 0.25);
+    --fe-table-sticky-scroll-bar-border-radius: 100px;
+    --fe-table-expand-icon-margin-top: 2.5px;
+    --fe-table-header-icon-color: rgba(190, 18, 60, 0.45);
+    --fe-table-header-icon-hover-color: rgba(190, 18, 60, 0.85);
+    --fe-table-expand-icon-half-inner: 7px;
+    --fe-table-expand-icon-size: 17px;
+    --fe-table-expand-icon-scale: 0.94;
+  }
 }

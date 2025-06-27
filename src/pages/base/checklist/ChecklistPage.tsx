@@ -358,7 +358,7 @@ const ChecklistPage: React.FC = () => {
         rowKey="id"
         pagination={false}
         className="shadow rounded-lg"
-        rowClassName={(record) => (record.completed ? 'bg-gray-50' : '')}
+        rowClassName={(record) => (record.completed ? 'bg-primary-tcb' : '')}
       />
 
       <Modal

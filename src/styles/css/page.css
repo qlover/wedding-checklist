@@ -8,4 +8,5 @@
   --color-border: rgba(var(--color-border));
   --color-brand: rgba(var(--color-brand));
   --color-brand-hover: rgba(var(--color-brand-hover));
+  --color-primary-tcb: rgba(var(--color-primary-tcb-v));
 }

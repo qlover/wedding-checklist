@@ -4,7 +4,7 @@ import type {
   UserApiLoginTransaction
 } from '@/base/apis/userApi/UserApiType';
 import { RouteService } from './RouteService';
-import { ThreadUtil, type StorageTokenInterface } from '@qlover/corekit-bridge';
+import { type StorageTokenInterface } from '@qlover/corekit-bridge';
 import { inject, injectable } from 'inversify';
 import { IOCIdentifier } from '@/core/IOC';
 import { LoginInterface, RegisterFormData } from '@/base/port/LoginInterface';
@@ -46,8 +46,6 @@ export class UserService
    * @override
    */
   async onBefore(): Promise<void> {
-    await ThreadUtil.sleep(1000);
-
     const userToken = this.userToken.getToken();
 
     if (!userToken) {

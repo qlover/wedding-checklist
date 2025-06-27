@@ -25,5 +25,8 @@
     --login-button-text: rgb(255 255 255);
     --login-social-button-bg: var(--fe-color-bg-container);
     --login-social-button-border: var(--fe-color-border);
+
+    /* 表格 */
+    --color-primary-tcb-v: 15 23 42; /* purple-600 */
   }
 }

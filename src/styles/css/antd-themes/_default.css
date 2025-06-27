@@ -236,4 +236,46 @@ html,
     --fe-message-info-color: var(--fe-color-primary);
     --fe-message-loading-color: var(--fe-color-primary);
   }
+
+  /* Antd Table 组件变量 */
+  .ant-table,
+  .ant-table-css-var {
+    --fe-table-header-bg: #fafafa;
+    --fe-table-header-color: rgba(0, 0, 0, 0.88);
+    --fe-table-header-sort-active-bg: #f0f0f0;
+    --fe-table-header-sort-hover-bg: #f0f0f0;
+    --fe-table-body-sort-bg: #fafafa;
+    --fe-table-row-hover-bg: #fafafa;
+    --fe-table-row-selected-bg: #e6f4ff;
+    --fe-table-row-selected-hover-bg: #bae0ff;
+    --fe-table-row-expanded-bg: rgba(0, 0, 0, 0.02);
+    --fe-table-cell-padding-block: 16px;
+    --fe-table-cell-padding-inline: 16px;
+    --fe-table-cell-padding-block-md: 12px;
+    --fe-table-cell-padding-inline-md: 8px;
+    --fe-table-cell-padding-block-sm: 8px;
+    --fe-table-cell-padding-inline-sm: 8px;
+    --fe-table-border-color: #f0f0f0;
+    --fe-table-header-border-radius: 8px;
+    --fe-table-footer-bg: #fafafa;
+    --fe-table-footer-color: rgba(0, 0, 0, 0.88);
+    --fe-table-cell-font-size: 14px;
+    --fe-table-cell-font-size-md: 14px;
+    --fe-table-cell-font-size-sm: 14px;
+    --fe-table-header-split-color: #f0f0f0;
+    --fe-table-fixed-header-sort-active-bg: #f0f0f0;
+    --fe-table-header-filter-hover-bg: rgba(0, 0, 0, 0.06);
+    --fe-table-filter-dropdown-menu-bg: #ffffff;
+    --fe-table-filter-dropdown-bg: #ffffff;
+    --fe-table-expand-icon-bg: #ffffff;
+    --fe-table-selection-column-width: 32px;
+    --fe-table-sticky-scroll-bar-bg: rgba(0, 0, 0, 0.25);
+    --fe-table-sticky-scroll-bar-border-radius: 100px;
+    --fe-table-expand-icon-margin-top: 2.5px;
+    --fe-table-header-icon-color: rgba(0, 0, 0, 0.29);
+    --fe-table-header-icon-hover-color: rgba(0, 0, 0, 0.57);
+    --fe-table-expand-icon-half-inner: 7px;
+    --fe-table-expand-icon-size: 17px;
+    --fe-table-expand-icon-scale: 0.94;
+  }
 }

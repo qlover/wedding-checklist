@@ -173,4 +173,46 @@
       0.85
     ); /* 确保文字在深色背景上清晰可见 */
   }
+
+  /* Antd Table 组件变量 */
+  .ant-table,
+  .ant-table-css-var {
+    --fe-table-header-bg: rgb(30 41 59); /* slate-800 */
+    --fe-table-header-color: rgba(255, 255, 255, 0.85);
+    --fe-table-header-sort-active-bg: rgb(51 65 85); /* slate-700 */
+    --fe-table-header-sort-hover-bg: rgb(51 65 85); /* slate-700 */
+    --fe-table-body-sort-bg: rgb(30 41 59); /* slate-800 */
+    --fe-table-row-hover-bg: rgb(51 65 85); /* slate-700 */
+    --fe-table-row-selected-bg: rgba(147, 51, 234, 0.2); /* purple-600 with opacity */
+    --fe-table-row-selected-hover-bg: rgba(147, 51, 234, 0.3); /* purple-600 with opacity */
+    --fe-table-row-expanded-bg: rgba(255, 255, 255, 0.02);
+    --fe-table-cell-padding-block: 16px;
+    --fe-table-cell-padding-inline: 16px;
+    --fe-table-cell-padding-block-md: 12px;
+    --fe-table-cell-padding-inline-md: 8px;
+    --fe-table-cell-padding-block-sm: 8px;
+    --fe-table-cell-padding-inline-sm: 8px;
+    --fe-table-border-color: rgb(51 65 85); /* slate-700 */
+    --fe-table-header-border-radius: 8px;
+    --fe-table-footer-bg: rgb(30 41 59); /* slate-800 */
+    --fe-table-footer-color: rgba(255, 255, 255, 0.85);
+    --fe-table-cell-font-size: 14px;
+    --fe-table-cell-font-size-md: 14px;
+    --fe-table-cell-font-size-sm: 14px;
+    --fe-table-header-split-color: rgb(51 65 85); /* slate-700 */
+    --fe-table-fixed-header-sort-active-bg: rgb(51 65 85); /* slate-700 */
+    --fe-table-header-filter-hover-bg: rgba(255, 255, 255, 0.08);
+    --fe-table-filter-dropdown-menu-bg: rgb(30 41 59); /* slate-800 */
+    --fe-table-filter-dropdown-bg: rgb(30 41 59); /* slate-800 */
+    --fe-table-expand-icon-bg: rgb(30 41 59); /* slate-800 */
+    --fe-table-selection-column-width: 32px;
+    --fe-table-sticky-scroll-bar-bg: rgba(255, 255, 255, 0.25);
+    --fe-table-sticky-scroll-bar-border-radius: 100px;
+    --fe-table-expand-icon-margin-top: 2.5px;
+    --fe-table-header-icon-color: rgba(255, 255, 255, 0.45);
+    --fe-table-header-icon-hover-color: rgba(255, 255, 255, 0.85);
+    --fe-table-expand-icon-half-inner: 7px;
+    --fe-table-expand-icon-size: 17px;
+    --fe-table-expand-icon-scale: 0.94;
+  }
 }
